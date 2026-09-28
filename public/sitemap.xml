@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 1. หน้าแรก (Home Page) -->
+  <url>
+    <loc>https://www.hanpabelt.com/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. แคตตาล็อกสายพานรวม (Product Catalog) -->
+  <url>
+    <loc>https://www.hanpabelt.com/catalog</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. สายพาน PU (PU Belt - Food Grade) -->
+  <url>
+    <loc>https://www.hanpabelt.com/pu-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. สายพาน PVC (PVC Belt) -->
+  <url>
+    <loc>https://www.hanpabelt.com/pvc-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. สายพาน Timing Belt -->
+  <url>
+    <loc>https://www.hanpabelt.com/timing-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 6. สายพาน V-Belt -->
+  <url>
+    <loc>https://www.hanpabelt.com/v-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 7. สายพาน Flat Belt / ผ้าใบแบน -->
+  <url>
+    <loc>https://www.hanpabelt.com/flat-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. สายพาน Modular Belt พลาสติกโมดูลาร์ -->
+  <url>
+    <loc>https://www.hanpabelt.com/modular-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 9. สายพานสักหลาด Felt Belt -->
+  <url>
+    <loc>https://www.hanpabelt.com/felt-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 10. สายพานทนความร้อน Teflon -->
+  <url>
+    <loc>https://www.hanpabelt.com/heat-resistant-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 11. สายพานกลม Round Belt PU O-Ring -->
+  <url>
+    <loc>https://www.hanpabelt.com/round-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 12. สายพาน Food Grade มาตรฐาน FDA -->
+  <url>
+    <loc>https://www.hanpabelt.com/food-grade-belt</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 13. Timing Pulley พูลเลย์ไทม์มิ่ง -->
+  <url>
+    <loc>https://www.hanpabelt.com/timing-pulley</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 14. V-Belt Pulley มู่เลย์ร่องวี -->
+  <url>
+    <loc>https://www.hanpabelt.com/v-belt-pulley</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 15. สายพานฉุด Apron Belt / Roller -->
+  <url>
+    <loc>https://www.hanpabelt.com/apron-roller</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 16. ข้อต่อสายพาน Belt Fastener -->
+  <url>
+    <loc>https://www.hanpabelt.com/belt-fastener</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 17. บริการตัดต่อและติดตั้งหน้างาน -->
+  <url>
+    <loc>https://www.hanpabelt.com/service</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 18. ขอใบเสนอราคาด่วนออนไลน์ -->
+  <url>
+    <loc>https://www.hanpabelt.com/quote</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 19. เกี่ยวกับเรา บริษัท หาญภา จำกัด -->
+  <url>
+    <loc>https://www.hanpabelt.com/about</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 20. คลังความรู้ & คู่มือทางเทคนิคสายพาน -->
+  <url>
+    <loc>https://www.hanpabelt.com/knowledge</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

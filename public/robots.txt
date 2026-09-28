@@ -1,0 +1,6 @@
+# Robots.txt for Hanpabelt.com
+User-agent: *
+Allow: /
+
+# Sitemap index
+Sitemap: https://www.hanpabelt.com/sitemap.xml

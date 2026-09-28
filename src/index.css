@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Prompt', 'Inter', sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cool tone modern grid and glows */
+.cool-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+.cool-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
+}
+
+.cool-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9;
+}
+
+/* ซ่อนกล่องเขียวและแถบสีเขียวทุกหน้าตามคำสั่ง */
+div[style*="green"],
+div[style*="#00FF00"],
+div[style*="#22c55e"],
+.bg-green-50,
+.bg-green-100,
+.bg-green-200,
+.bg-green-300,
+.bg-green-400,
+.bg-green-500,
+.bg-green-600,
+.bg-green-700,
+.bg-green-800,
+.bg-green-900,
+.bg-emerald-50,
+.bg-emerald-100,
+.bg-emerald-200,
+.bg-emerald-300,
+.bg-emerald-400,
+.bg-emerald-500,
+.bg-emerald-600,
+.bg-emerald-700,
+.bg-emerald-800,
+.bg-emerald-900,
+[class*="green-box"],
+[class*="green-bar"] {
+  display: none !important;
+}
+
