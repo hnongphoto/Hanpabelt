@@ -218,7 +218,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Col 4: Location & Contact */}
           <div className="space-y-3">
             <h4 className="font-semibold text-white text-xs uppercase tracking-wider text-sky-400">
-              สำนักงานและโรงงาน ชลบุรี
+              หาญภาเบลท์
             </h4>
             <div className="space-y-2.5 text-xs text-slate-400 font-light">
               <div className="flex items-start gap-2.5">
