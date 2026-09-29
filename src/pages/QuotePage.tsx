@@ -170,7 +170,7 @@ export const QuotePage: React.FC<QuotePageProps> = ({ onNavigate, prefillBelt = 
             <span className="sr-only"> HANPABELT สายพานอุตสาหกรรม ชลบุรี</span>
           </h1>
           <p className="text-sm text-slate-600 font-light">
-            กรอกข้อมูลสเปคสายพานที่ต้องการ ฝ่ายขาย TJ &amp; Hanpa จะติดต่อกลับพร้อมราคาและกำหนดส่งมอบทันที
+            กรอกข้อมูลสเปคสายพานที่ต้องการ ฝ่ายขาย Hanpabelt จะติดต่อกลับพร้อมราคาและกำหนดส่งมอบทันที
           </p>
         </div>
 
@@ -440,7 +440,7 @@ export const QuotePage: React.FC<QuotePageProps> = ({ onNavigate, prefillBelt = 
                   คลิกเพื่อเลือกภาพ หรือลากไฟล์มาวางที่นี่
                 </p>
                 <p className="text-xs text-slate-400 mt-1">
-                  รองรับไฟล์ JPG, PNG (แปลงเป็น Base64 พร้อมส่งเข้า Google Sheet ทันที)
+                  รองรับไฟล์ JPG, PNG
                 </p>
               </div>
 

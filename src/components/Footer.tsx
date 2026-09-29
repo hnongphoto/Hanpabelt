@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-xs font-light">
-              ผู้นำเข้าและจัดจำหน่ายสายพานอุตสาหกรรมครบวงจร สายพานลำเลียง PVC/PU, สายพานส่งกำลัง Timing Belt, V-Belt, สายพานฉุด และรับกลึง Pulley ตามแบบ รองรับโรงงานในนิคมอมตะนคร แหลมฉบัง มาบตาพุด และทั่วประเทศ
+              จัดจำหน่ายสายพานอุตสาหกรรมครบวงจร สายพานลำเลียง PVC/PU, สายพานส่งกำลัง Timing Belt, V-Belt, สายพานฉุด และรับกลึง Pulley ตามแบบ รองรับโรงงานในนิคมอมตะนคร แหลมฉบัง มาบตาพุด และทั่วประเทศ
             </p>
             <div className="pt-1 flex items-center gap-3">
               <a 
@@ -276,8 +276,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom Baseline */}
-        <div className="pt-8 mt-10 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
-          <p>© 2024 Hanpa Co., Ltd. (บริษัท หาญภา จำกัด) ชลบุรี. All Rights Reserved.</p>
+        <div className="pt-8 mt-10 border-t border-slate-900 flex flex-col sm:flex-row justify-end items-center gap-4 text-slate-500 text-[11px]">
           <div className="flex gap-4">
             <span className="text-slate-400">Food Grade FDA Certified</span>
           </div>

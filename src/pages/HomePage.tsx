@@ -67,7 +67,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductMod
 
               {/* Concrete Description */}
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-light">
-                บริษัท หาญภา จำกัด เป็นผู้นำเข้าและจัดจำหน่ายสายพานอุตสาหกรรมครบวงจร คัดสรรเฉพาะผลิตภัณฑ์มาตรฐานสากล ทั้งสายพานลำเลียง PVC/PU, สายพานส่งกำลัง Timing Belt, V-Belt และงานกลึง Pulley พร้อมบริการตัดต่อ และดูแลติดตั้งหน้างานโดยทีมช่างผู้เชี่ยวชาญ
+                หาญภาเบลท์ จัดจำหน่ายสายพานอุตสาหกรรมครบวงจร คัดสรรเฉพาะผลิตภัณฑ์มาตรฐานสากล ทั้งสายพานลำเลียง PVC/PU, สายพานส่งกำลัง Timing Belt, V-Belt และงานกลึง Pulley พร้อมบริการตัดต่อ และดูแลติดตั้งหน้างานโดยทีมช่างผู้เชี่ยวชาญ
               </p>
 
               {/* Modern CTAs Button Cluster */}
@@ -150,9 +150,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductMod
               <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
               คู่คิดด้านอุปกรณ์อุตสาหกรรม ที่เข้าใจความต้องการของคุณ
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-              บริษัท หาญภา จำกัด (ชลบุรี ใกล้อมตะนคร)
-            </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed font-light">
               ศูนย์จำหน่ายและแปรรูปสายพานอุตสาหกรรมมาตรฐานสูง ตัดต่อตามขนาดทันที ไม่ต้องรอนำเข้านาน
             </p>
@@ -444,7 +441,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductMod
             ต้องการเทียบราคา หรือสั่งตัดสายพานด่วน?
           </h2>
           <p className="text-sm text-slate-300 max-w-2xl mx-auto font-light">
-            ฝ่ายขายและวิศวกรของ บริษัท หาญภา จำกัด พร้อมตรวจสอบสเปคและส่งใบเสนอราคาอย่างเป็นทางการภายใน 2 ชั่วโมง
+            ฝ่ายขาย หาญภาเบลท์ พร้อมตรวจสอบสเปคและส่งใบเสนอราคาอย่างเป็นทางการภายใน 2 ชั่วโมง
           </p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
             <button

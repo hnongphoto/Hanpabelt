@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
           />
           <div className="hidden lg:block border-l border-slate-200 pl-3">
             <span className="text-xs text-slate-600 font-semibold block leading-tight">
-              บริษัท หาญภา จำกัด
+              หาญภาเบลท์
             </span>
           </div>
         </div>
