@@ -19,11 +19,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               <span className="inline-block w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
               ศูนย์บริการชลบุรี · ใกล้อมตะนคร &amp; แหลมฉบัง
             </span>
-            <span className="hidden md:inline text-slate-700">|</span>
-            <span className="hidden md:flex items-center gap-1.5 text-slate-300">
-              <Clock className="w-3.5 h-3.5 text-sky-400" />
-              ตัดต่อด่วน 2 ชม. / ส่งมอบครอบคลุมทั่วไทย
-            </span>
           </div>
 
           <div className="flex items-center gap-4 text-xs font-mono-data">
