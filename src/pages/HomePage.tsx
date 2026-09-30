@@ -2,7 +2,6 @@ import React from 'react';
 import { PageId, ProductItem } from '../types';
 import { 
   ArrowRight, 
-  Clock, 
   ShieldCheck, 
   Wrench, 
   CheckCircle2, 
@@ -300,16 +299,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductMod
                 </p>
               </div>
 
-              {/* 4 Feature Boxes */}
+              {/* Feature Boxes */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1">
-                  <div className="w-8 h-8 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center mb-2">
-                    <Clock className="w-4 h-4" />
-                  </div>
-                  <h4 className="font-bold text-slate-900 text-sm">ตัดต่อเสร็จใน 2 ชม.</h4>
-                </div>
-
-
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm space-y-1">
                   <div className="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-2">
                     <Wrench className="w-4 h-4" />

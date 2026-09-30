@@ -7,7 +7,6 @@ import {
   Mail, 
   Clock, 
   MessageCircle, 
-  Award, 
   CheckCircle2,
   Truck,
   Layers,
@@ -26,12 +25,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         {/* Section Header */}
         <div className="border-b border-slate-200/90 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-xs font-mono-data font-semibold mb-2">
-            <span>HANPA CO., LTD. · CHON BURI</span>
+            <span>HANPABELT</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            บริษัท หาญภา จำกัด
-            <span className="sr-only"> HANPABELT ชลบุรี ระยอง สายพานอุตสาหกรรม</span>
-          </h1>
           <p className="text-sm text-slate-600 mt-1 max-w-3xl font-light">
             ผู้เชี่ยวชาญด้านระบบสายพานลำเลียงและสายพานส่งกำลังมาตรฐานสากล รองรับอุตสาหกรรมในภาคตะวันออกและทั่วประเทศ
           </p>
@@ -44,7 +39,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               คู่คิดด้านอุปกรณ์อุตสาหกรรม ที่เข้าใจความต้องการของคุณ
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-light">
-              <strong>บริษัท หาญภา จำกัด</strong> ก่อตั้งขึ้นเพื่อดำเนินธุรกิจนำเข้า จัดจำหน่าย และให้บริการแปรรูปตัดต่อสายพานอุตสาหกรรมแบบครบวงจร ที่ตั้งของสำนักงานและศูนย์บริการตั้งอยู่ในอำเภอเมืองชลบุรี ใกล้พื้นที่ยุทธศาสตร์นิคมอุตสาหกรรมอมตะนคร นิคมอุตสาหกรรมแหลมฉบัง และนิคมอุตสาหกรรมปิ่นทอง
+              ให้บริการแปรรูปตัดต่อสายพานอุตสาหกรรมแบบครบวงจร ที่ตั้งของสำนักงานและศูนย์บริการตั้งอยู่ในอำเภอเมืองชลบุรี ใกล้พื้นที่ยุทธศาสตร์นิคมอุตสาหกรรมอมตะนคร นิคมอุตสาหกรรมแหลมฉบัง และนิคมอุตสาหกรรมปิ่นทอง
             </p>
             <p className="text-sm text-slate-600 leading-relaxed font-light">
               เราตระหนักดีว่าในกระบวนการผลิตทางอุตสาหกรรม การหยุดชะงักของเครื่องจักรสร้างความสูญเสียอย่างมาก ทีมงานของหาญภาจึงมุ่งเน้นการคัดสรรผลิตภัณฑ์ที่มีคุณภาพมาตรฐานสากล ทั้งสายพาน PVC, PU Food Grade (FDA), สายพานไทม์มิ่ง (Timing Belt) เสริมลวดสลิง, V-Belt ตลอดจนงานกลึงพูลเลย์ตามแบบ
@@ -52,17 +47,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <p className="text-sm text-slate-600 leading-relaxed font-light">
               ด้วยประสบการณ์และความเชี่ยวชาญทางเทคนิค เราพร้อมให้คำปรึกษาและแนะนำสายพานให้เหมาะสมกับลักษณะงาน สภาพแวดล้อม (ทนความร้อน ทนน้ำมัน สารเคมี หรือการเสียดสี) และงบประมาณ เพื่อให้กระบวนการผลิตของท่านดำเนินไปอย่างต่อเนื่องและคุ้มค่าที่สุด
             </p>
-
-            {/* Quality Standard Highlights */}
-            <div className="pt-4 border-t border-slate-100 text-xs font-mono-data max-w-sm">
-              <div className="flex items-center gap-3 p-4 rounded-2xl bg-sky-50/60 border border-sky-100">
-                <Award className="w-6 h-6 text-sky-600 shrink-0" />
-                <div>
-                  <span className="font-bold text-slate-900 block text-sm">FDA 21 CFR</span>
-                  <span className="text-[11px] text-slate-500 font-sans font-light">เกรดสัมผัสอาหารปลอดภัย</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Plant Fact Sheet (5 Cols) */}
@@ -78,20 +62,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
             <div className="rounded-2xl border border-slate-200/80 overflow-hidden text-xs divide-y divide-slate-100">
               <div className="p-3 flex justify-between bg-slate-50">
-                <span className="text-slate-500">ชื่อนิติบุคคล:</span>
-                <span className="font-bold text-slate-900">บริษัท หาญภา จำกัด</span>
-              </div>
-              <div className="p-3 flex justify-between">
                 <span className="text-slate-500">พื้นที่ปฏิบัติการ:</span>
                 <span className="text-slate-800">อ.เมือง จ.ชลบุรี (ใกล้อมตะนคร)</span>
               </div>
-              <div className="p-3 flex justify-between bg-slate-50">
+              <div className="p-3 flex justify-between">
                 <span className="text-slate-500">ขอบเขตการจัดส่ง:</span>
                 <span className="text-slate-800 font-medium">ทั่วไทย</span>
-              </div>
-              <div className="p-3 flex justify-between">
-                <span className="text-slate-500">บริการฉุกเฉิน:</span>
-                <span className="font-mono-data font-semibold text-sky-600">24 ชม. สำหรับลูกค้าโรงงาน</span>
               </div>
             </div>
 
