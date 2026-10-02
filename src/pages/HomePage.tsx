@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageId, ProductItem } from '../types';
 import { 
   ArrowRight, 
@@ -8,6 +8,7 @@ import {
   Layers, 
   Zap, 
   ChevronRight,
+  ChevronLeft,
   Phone,
   MessageCircle,
   FileText,
@@ -19,12 +20,133 @@ import {
 } from 'lucide-react';
 import { initialCatalogProducts } from '../data/catalogData';
 
+const heroSlides = [
+  {
+    id: 'round-machine',
+    label: 'เครื่องจักรมู่เล่ย์สายพานกลม',
+    tag: 'ROUND BELT PULLEY MACHINERY',
+    title: 'เครื่องจักรมู่เล่ย์ขับเคลื่อนสายพานกลม Polycord',
+    desc: 'ชุดมู่เล่ย์เครื่องจักรกลโรงงาน ขับเคลื่อนด้วยสายพานกลมสีเขียว Polycord วิ่งเงียบ ทนทาน ไม่ยืด',
+    image: '/assets/slides/round_belt_machine.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1Wl2dl-wuGvysGqvkruvIJMDgkpBwMVoz&sz=w1000',
+    categoryCode: 'ROUND',
+    badge: 'ROUND BELT DRIVE'
+  },
+  {
+    id: 'round-polycord',
+    label: 'สายพานกลม Polycord',
+    tag: 'POLYCORD SWISS MADE',
+    title: 'ม้วนสายพานกลม PU Polycord มาตรฐานสวิตเซอร์แลนด์',
+    desc: 'สายพานกลมคุณภาพสูง Made in Switzerland ทนสารเคมี ทนน้ำมัน ตัดต่อเชื่อมความร้อนติดแน่น',
+    image: '/assets/slides/round_belt_polycord.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1cjqzM0gC34eee92fb43flbODLQM8fnES&sz=w1000',
+    categoryCode: 'ROUND',
+    badge: 'SWISS POLYCORD'
+  },
+  {
+    id: 'wood-machine',
+    label: 'สายพานไม้ในไลน์เครื่องจักร',
+    tag: 'WOOD CONVEYOR IN MACHINE',
+    title: 'สายพานลำเลียงไม้ระแนงติดตั้งในไลน์เครื่องจักร',
+    desc: 'ระบบสายพานลำเลียงไม้ระแนงทำงานจริงในไลน์เครื่องจักรอุตสาหกรรม ลำเลียงชิ้นงานและวัสดุอย่างราบรื่น',
+    image: '/assets/slides/wood_belt_machine.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1djE-U1qaHre5INFaZNQiwo6KkMU8Gbxh&sz=w1000',
+    categoryCode: 'WOOD',
+    badge: 'PLANT OPERATION'
+  },
+  {
+    id: 'wood-alligator',
+    label: 'สายพานไม้ข้อต่อก้ามปู',
+    tag: 'WOOD SLAT ALLIGATOR LACING',
+    title: 'สายพานไม้ระแนงม้วนสำเร็จรูป ยึดข้อต่อก้ามปู Alligator',
+    desc: 'ระแนงไม้เนื้อแข็งคัดพิเศษ ยึดหมุดทองแดงบนผ้าใบหนา พร้อมชุดหัวต่อก้ามปู Alligator Lacing แข็งแรงสูง',
+    image: '/assets/slides/wood_belt_alligator.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1XUnpY-GO5I3M74GAziWkvjO9NUwxqNhD&sz=w1000',
+    categoryCode: 'WOOD',
+    badge: 'WOOD SLAT BELT'
+  },
+  {
+    id: 'timing-pulley',
+    label: 'Timing Pulley อลูมิเนียม',
+    tag: 'CNC ALUMINUM PULLEYS',
+    title: 'กองมู่เล่ย์สายพานไทม์มิ่งอลูมิเนียม กลึงขึ้นรูป CNC',
+    desc: 'มู่เล่ย์ Timing Pulley กัดฟันมาตรฐานตามแบบ Drawing สำหรับเครื่องจักรกลและมอเตอร์ส่งกำลังสูง',
+    image: '/assets/slides/timing_pulley_stack.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1ljFq7wH58dQSl88dXu1pX4pyJe4p5FsW&sz=w1000',
+    categoryCode: 'PULLEY',
+    badge: 'CNC MACHINED'
+  },
+  {
+    id: 'timing-pu-white',
+    label: 'Timing Belt T10 PU ขาว',
+    tag: 'PU T10 TIMING BELT',
+    title: 'สายพานไทม์มิ่ง T10 PU สีขาว เสริมลวดสลิงเหล็กกล้า',
+    desc: 'สายพานส่งกำลัง Timing Belt PU สีขาว ทนแรงดึงสูง ฟันแข็งแรง แม่นยำ ไม่ยืดตัว',
+    image: '/assets/slides/timing_belt_pu_white.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1sc3uOEPR1qh25tcGQQA8xHZsnqQ5DAe8&sz=w1000',
+    categoryCode: 'TIM',
+    badge: 'PU T10 STEEL CORD'
+  },
+  {
+    id: 'timing-rubber',
+    label: 'Timing Belt ยางดำ High-Torque',
+    tag: 'HIGH TORQUE RUBBER BELT',
+    title: 'สายพานไทม์มิ่งยางดำ High-Torque ฟันโค้งทรงพลัง',
+    desc: 'สายพานส่งกำลังเครื่องยนต์และเครื่องจักรกลหนัก ทนความร้อน ทนแรงบิดมหาศาล',
+    image: '/assets/slides/timing_belt_rubber.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1VvYnVmS66zufILRA5ZxuMMHDnBYhhhYs&sz=w1000',
+    categoryCode: 'TIM',
+    badge: 'HIGH TORQUE'
+  },
+  {
+    id: 'flat-drive-chud',
+    label: 'สายพานฉุดแบนสีเขียว',
+    tag: 'FLAT DRIVE TRANSMISSION',
+    title: 'สายพานฉุดส่งกำลังแบนแรงดึงสูง (Flat Drive Belt)',
+    desc: 'สายพานส่งกำลังแบบแบนสีเขียว-ดำ สำหรับขับเพลาและส่งกำลังเครื่องจักรโรงงาน',
+    image: '/assets/slides/flat_drive_chud.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1c3g5JMjRS73aAAybpRsfrYrS4UjNM-AL&sz=w1000',
+    categoryCode: 'CHUD',
+    badge: 'FLAT TRANSMISSION'
+  },
+  {
+    id: 'flat-drive-texture',
+    label: 'โครงสร้างผิวสายพานฉุด',
+    tag: 'TEXTURED FABRIC CARCASS',
+    title: 'โครงสร้างผ้าใบสายพานส่งกำลังทนการสึกหรอพิเศษ',
+    desc: 'ภาพซูมโครงสร้างพื้นผิวผ้าใบและชั้นยางสังเคราะห์คุณภาพสูง ยึดเกาะรอกมู่เล่ย์เยี่ยม ไม่สะบัด',
+    image: '/assets/slides/flat_drive_texture.jpg',
+    fallback: 'https://drive.google.com/thumbnail?id=1damAHTh8Ji7syZjfR98PEIK_rsWyGQiG&sz=w1000',
+    categoryCode: 'CHUD',
+    badge: 'PREMIUM TEXTURE'
+  }
+];
+
 interface HomePageProps {
   onNavigate: (page: PageId, prefillBelt?: string) => void;
   onOpenProductModal: (product: ProductItem) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductModal }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto advance slides every 5 seconds
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isAutoPlaying]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
   // Select top 8 category hero products
   const featuredBelts = [
     initialCatalogProducts.find(p => p.product_id === 'PVC-01') || initialCatalogProducts[0],
@@ -97,39 +219,123 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenProductMod
               </div>
             </div>
 
-            {/* Right Column: Hero Visual Glass Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 aspect-square group">
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZR0onWiAUBGawP4ZCR2WXH4Wtrm74hiuvoIHuacKW9WnHIA9k7_-iWgIBlU2xsXIaq4y-fChv2Q3so9xMI7Gj59K8KgbIeWTcMaZ9es01762Kx5ZElUSFOsUOUlGpQVzV8F7PNtRz1B0p7TVJkENDwRLxPPIKRliHeZFctWkXb9r3SgSlnGihtmb2n5dn68y2-StPerKGpcpO32ekMPq1R6d5AEEBjcMJKOh50uGr4yMUwMFCQCfbtWt35Ks_xDtAM10"
-                  alt="hanpabelt-timing-belt-pu-food-grade-สายพานอุตสาหกรรม-ชลบุรี"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+            {/* Right Column: Hero Visual Industrial Belts & Machinery Slider */}
+            <div 
+              className="lg:col-span-5 relative"
+              onMouseEnter={() => setIsAutoPlaying(false)}
+              onMouseLeave={() => setIsAutoPlaying(true)}
+            >
+              {/* Main Slider Display Card */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-950 aspect-[4/3] sm:aspect-square group">
+                {/* Horizontal Sliding Track: True Slide Animation with Zero Opacity Fade */}
+                <div 
+                  className="flex h-full w-full transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {heroSlides.map((slide) => (
+                    <div
+                      key={slide.id}
+                      className="w-full h-full shrink-0 relative flex items-center justify-center bg-slate-950 overflow-hidden"
+                    >
+                      {/* Subtle Ambient Background Glow */}
+                      <img
+                        src={slide.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-110 pointer-events-none"
+                      />
+                      {/* 100% Sharp, Full-Brightness, Uncropped Foreground Product Photo */}
+                      <img
+                        src={slide.image}
+                        alt={`hanpabelt-${slide.id}`}
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          if (slide.fallback && e.currentTarget.src !== slide.fallback) {
+                            e.currentTarget.src = slide.fallback;
+                          }
+                        }}
+                        className="relative z-10 max-w-full max-h-full object-contain p-2 sm:p-4 select-none drop-shadow-xl"
+                      />
+                    </div>
+                  ))}
+                </div>
 
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/90 backdrop-blur-md text-white text-[11px] font-semibold shadow-sm">
-                    <Sparkles className="w-3 h-3 text-sky-200" />
-                    <span>TOP RECOMMENDED</span>
+                {/* Top Badges Bar */}
+                <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/15 text-white text-[11px] font-mono-data font-semibold shadow-sm">
+                    <Sparkles className="w-3 h-3 text-sky-400" />
+                    <span>{heroSlides[currentSlide].badge}</span>
+                  </span>
+
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-900/90 backdrop-blur-md text-white/90 text-xs font-mono-data font-semibold border border-white/15">
+                    {(currentSlide + 1).toString().padStart(2, '0')} / {heroSlides.length.toString().padStart(2, '0')}
                   </span>
                 </div>
 
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h3 className="text-lg sm:text-xl font-bold">
-                    High-Torque Timing Belts &amp; PU Food Grade
-                  </h3>
-                  <p className="text-xs text-slate-300 mt-1 font-light leading-relaxed">
-                    รองรับอุณหภูมิ -20°C ถึง +100°C · ทนทานต่อน้ำมัน สารเคมี และการสึกหรอ
-                  </p>
-                  
-                  <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/20 text-xs">
-                    <span className="text-sky-300 font-mono-data text-[11px]">CHON BURI PLANT READY</span>
+                {/* Left / Right Slide Navigation Buttons */}
+                <div className="absolute inset-y-0 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
+                  <button
+                    onClick={handlePrevSlide}
+                    className="w-10 h-10 rounded-full bg-slate-900/70 hover:bg-slate-900 backdrop-blur-md text-white flex items-center justify-center pointer-events-auto border border-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg"
+                    title="สไลด์ก่อนหน้า"
+                    aria-label="Previous slide"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={handleNextSlide}
+                    className="w-10 h-10 rounded-full bg-slate-900/70 hover:bg-slate-900 backdrop-blur-md text-white flex items-center justify-center pointer-events-auto border border-white/20 transition-all hover:scale-110 active:scale-95 shadow-lg"
+                    title="สไลด์ถัดไป"
+                    aria-label="Next slide"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Bottom Content Caption Card (Compact 50% size, leaves 90%+ image visible) */}
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 z-20 py-2 px-3 sm:px-3.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-white/10 text-white shadow-xl flex items-center justify-between gap-2">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-mono-data font-semibold text-sky-400 tracking-wider uppercase shrink-0">
+                        {heroSlides[currentSlide].tag}
+                      </span>
+                    </div>
+                    <h3 className="text-xs sm:text-sm font-bold tracking-tight text-white truncate leading-tight mt-0.5">
+                      {heroSlides[currentSlide].title}
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    {/* Dots indicator */}
+                    <div className="hidden sm:flex items-center gap-1">
+                      {heroSlides.map((_, dotIdx) => (
+                        <button
+                          key={dotIdx}
+                          onClick={() => setCurrentSlide(dotIdx)}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            currentSlide === dotIdx 
+                              ? 'w-4 bg-sky-400' 
+                              : 'w-1.5 bg-white/40 hover:bg-white/70'
+                          }`}
+                          aria-label={`Go to slide ${dotIdx + 1}`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Quick Action Button */}
+                    <button
+                      onClick={() => onNavigate('quote', heroSlides[currentSlide].title)}
+                      className="px-2.5 py-1 rounded-lg bg-sky-500/90 hover:bg-sky-500 text-white text-[11px] font-semibold flex items-center gap-1 transition-colors shadow-sm"
+                    >
+                      <FileText className="w-3 h-3" />
+                      <span>ขอราคา</span>
+                    </button>
                     <button
                       onClick={() => onNavigate('catalog')}
-                      className="text-white hover:text-sky-300 transition-colors font-semibold flex items-center gap-1"
+                      className="hidden md:flex px-2 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-white text-[11px] font-semibold items-center gap-0.5 transition-colors"
                     >
-                      <span>ดูรายละเอียด</span>
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <span>แคตตาล็อก</span>
+                      <ChevronRight className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
